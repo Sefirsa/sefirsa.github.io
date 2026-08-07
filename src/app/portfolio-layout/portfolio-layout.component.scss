@@ -1,0 +1,83 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio-content {
+  --background: var(--smoky-black);
+}
+
+.portfolio-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 100vh;
+  padding: 20px 16px 90px;
+  background: var(--smoky-black);
+}
+
+/*-----------------------------------*\
+  Mobile
+\*-----------------------------------*/
+
+app-sidebar {
+  display: block;
+  width: 100%;
+}
+
+.content-panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
+.page-container {
+  flex: 1;
+}
+
+/*-----------------------------------*\
+  Tablette
+\*-----------------------------------*/
+
+@media (min-width: 768px) {
+
+  .portfolio-layout {
+    padding-inline: 24px;
+    padding-top: 30px;
+    gap: 24px;
+  }
+
+}
+
+/*-----------------------------------*\
+  Desktop
+\*-----------------------------------*/
+
+@media (min-width:1250px){
+
+  .portfolio-layout{
+    position:relative;
+    display:block;
+    max-width:1280px;
+    margin:auto;
+    padding:60px 30px;
+  }
+
+  app-sidebar{
+    position:fixed;
+    width:300px;
+    top:60px;
+    left:calc(50% - 640px + 30px);
+  }
+
+  .content-panel{
+    position:relative;
+    margin-left:330px;
+    width:calc(100% - 330px);
+    min-height:calc(100vh - 120px);
+    padding-bottom:20px;
+  }
+
+}

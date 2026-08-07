@@ -1,0 +1,34 @@
+<section class="gallery">
+
+  <img
+    class="main-image"
+    [src]="'./assets/images/projects/' + selectedImage()"
+    alt="Project preview">
+
+  @if(images().length > 1){
+
+    <div class="thumbnail-container">
+
+      <div class="thumbnail-list">
+
+        @for(image of images(); track image){
+
+          <button
+            class="thumbnail"
+            [class.active]="image === selectedImage()"
+            (click)="selectImage(image)">
+
+            <img
+              [src]="'./assets/images/projects/' + image">
+
+          </button>
+
+        }
+
+      </div>
+
+    </div>
+
+  }
+
+</section>

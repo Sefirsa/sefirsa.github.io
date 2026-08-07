@@ -1,0 +1,58 @@
+
+  <section class="about">
+
+    <header>
+      <h2 class="about-title article-title">Présentation</h2>
+    </header>
+
+    <section class="about-text">
+      <p>
+        Diplômé d'un BUT Informatique à l'IUT de Montreuil, ma formation est orientée Big Data mais je souhaite aujourd'hui 
+        poursuivre mon parcours dans le développement backend et web.
+      </p>
+
+      <p>
+        J'ai principalement travaillé avec Angular, Symfony, API Platform et TypeScript pour le développement 
+        d'applications web, tout en utilisant Python, Java, PostgreSQL et Pandas dans le cadre de projets universitaires.
+      </p>
+    </section>
+
+
+    <section class="service">
+
+      <h3 class="service-title">
+        Mes activitées
+      </h3>
+
+      <div class="service-list">
+
+        @for (service of services; track service.title) {
+
+          <article class="service-item">
+
+            <div class="service-icon-box">
+              <div
+                class="service-icon"
+                [style.--icon]="'url(' + service.icon + ')'">
+              </div>
+            </div>
+
+            <div class="service-content-box">
+              <h4 class="service-item-title">
+                {{ service.title }}
+              </h4>
+
+              <p class="service-item-text">
+                {{ service.description }}
+              </p>
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    </section>
+
+  </section>

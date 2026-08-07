@@ -1,0 +1,106 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <div class="header-content">
+
+      <h1 class="project-title">
+        {{ project.title }}
+      </h1>
+
+      <p class="project-period">
+        {{ project.period }}
+      </p>
+
+    </div>
+
+    <ion-buttons slot="end">
+      <ion-button class="close-button" fill="clear" (click)="close()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <section class="project-card">
+
+    <section class="project-top">
+
+      <app-project-gallery
+        [cover]="project.image"
+        [screenshots]="project.screenshots ?? []">
+      </app-project-gallery>
+
+      <aside class="project-sidebar">
+
+        <h3>Technologies utilisées</h3>
+
+        <div class="technology-list">
+
+          @for (technology of project.technologies; track technology) {
+
+            <span class="technology-chip">
+              {{ technology }}
+            </span>
+
+          }
+
+        </div>
+
+      </aside>
+
+    </section>
+
+    <section class="project-description">
+
+      <h3>Description</h3>
+
+      <p>
+        {{ project.description }}
+      </p>
+
+    </section>
+
+    <footer class="project-links">
+
+      @if(project.githubRepoUrl){
+
+        <ion-button
+          fill="clear"
+          class="link-button"
+          [href]="project.githubRepoUrl"
+          target="_blank">
+          <ion-icon
+            slot="start"
+            name="logo-github">
+          </ion-icon>
+          Github
+        </ion-button>
+
+      }
+
+      @if(project.demoUrl){
+
+        <ion-button
+          fill="clear"
+          class="link-button"
+          [href]="project.demoUrl"
+          target="_blank">
+          <ion-icon
+            slot="start"
+            name="open-outline">
+          </ion-icon>
+          Démo
+        </ion-button>
+
+      }
+
+    </footer>
+
+  </section>
+
+</ion-content>

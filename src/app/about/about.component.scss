@@ -1,0 +1,124 @@
+@use '../../theme/mixins.scss' as *;
+
+.about {
+  @include page-card;
+  display:flex;
+  flex-direction:column;
+}
+
+.about .article-title { margin-bottom: 15px; }
+
+.about-text {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+}
+
+.about-text p { margin-bottom: 15px; }
+
+/*-----------------------------------*\
+  Service
+\*-----------------------------------*/
+
+.service { margin-bottom: 35px; }
+
+.service-title { margin-bottom: 20px; }
+
+.service-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.service-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1px;
+  padding: 20px;
+  background: var(--border-gradient-onyx);
+  border-radius: 14px;
+  box-shadow: var(--shadow-2);
+  z-index: 1;
+}
+
+.service-item::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.service-icon-box {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.service-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--text-gradient-yellow);
+  mask: var(--icon) center/contain no-repeat;
+  -webkit-mask: var(--icon) center/contain no-repeat;
+}
+
+.service-content-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8;
+}
+
+.service-item-title { margin-bottom: 0 0 8px; }
+
+.service-item-text {
+  margin: 0;
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-3);
+  line-height: 1.6;
+}
+
+@media (min-width:768px) {
+
+  .about { padding: 30px; }
+
+  .service-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 25px;
+  }
+
+  .service-item {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 18px;
+    min-height: 120px;
+  }
+
+  .service-icon-box {
+    align-self: flex-start;
+    margin-top: 20px;
+  }
+
+  .service-content-box {
+    flex: 1;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .about { box-shadow: var(--shadow-5); }
+}

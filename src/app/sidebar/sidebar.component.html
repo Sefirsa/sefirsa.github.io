@@ -1,0 +1,120 @@
+<aside
+  class="sidebar"
+  [class.active]="isExpanded">
+
+  <div class="sidebar-info">
+
+    <figure class="avatar-box">
+
+      <img
+        src="assets/images/zinogre-icon.png"
+        alt="Alexandre Bontemps">
+
+    </figure>
+
+    <div class="info-content">
+
+      <h1 class="name">
+        Alexandre Bontemps
+      </h1>
+
+      <p class="title">
+        Diplômé d'un DUT Informatique
+      </p>
+
+    </div>
+
+    <button
+      class="info-more-btn"
+      (click)="toggleSidebar()">
+
+      <ion-icon name="chevron-down"></ion-icon>
+
+    </button>
+
+  </div>
+
+  <div class="sidebar-info-more">
+
+    <div class="separator"></div>
+
+    <ul class="contacts-list">
+
+      @for(contact of contacts; track contact.label){
+
+      <li class="contact-item">
+
+        <div class="icon-box">
+          <ion-icon [name]="contact.icon"></ion-icon>
+        </div>
+
+        <div class="contact-info">
+          <p class="contact-title">
+            {{contact.label}}
+          </p>
+
+          @switch(contact.type){
+
+            @case('email'){
+
+              <a
+                class="contact-link"
+                [href]="'mailto:'+contact.value">
+                {{contact.value}}
+              </a>
+
+            }
+
+            @case('phone'){
+
+              <a
+                class="contact-link"
+                [href]="'tel:'+contact.value">
+                {{contact.value}}
+              </a>
+
+            }
+
+            @default{
+
+              <span>
+                {{contact.value}}
+              </span>
+
+            }
+
+          }
+
+        </div>
+
+      </li>
+
+      }
+
+    </ul>
+
+    <div class="separator"></div>
+
+    <ul class="social-list">
+
+      @for(link of socialLinks; track link.url){
+
+      <li>
+
+        <a
+          class="social-link"
+          [href]="link.url"
+          target="_blank"
+          rel="noopener noreferrer">
+          <ion-icon [name]="link.icon"></ion-icon>
+        </a>
+
+      </li>
+
+      }
+
+    </ul>
+
+  </div>
+
+</aside>

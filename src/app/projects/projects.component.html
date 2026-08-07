@@ -1,0 +1,58 @@
+
+  <section class="page-card projects">
+
+    <header>
+      <h2 class="article-title">Projects</h2>
+    </header>
+
+    <!--
+    <section class="filters">
+
+    </section>
+    -->
+
+    <section class="project-grid">
+
+      @for (project of projects; track project.id) {
+
+        <article class="project-card">
+
+          <button
+            class="project-button"
+            type="button"
+            (click)="openProject(project.id)">
+
+            <figure class="project-image">
+
+              <div class="project-overlay">
+                <div class="project-icon">
+
+                  <ion-icon name="eye-outline"></ion-icon>
+
+                </div>
+              </div>
+
+              <img
+                [src]="'./assets/images/projects/' + project.image"
+                [alt]="project.title"
+                loading="eager">
+
+            </figure>
+
+          </button>
+
+          <h3 class="project-title">
+            {{ project.title }}
+          </h3>
+
+          <p class="project-period">
+            {{ project.period }}
+          </p>
+
+        </article>
+
+      }
+
+    </section>
+
+  </section>

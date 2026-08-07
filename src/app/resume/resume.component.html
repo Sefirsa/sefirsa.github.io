@@ -1,0 +1,53 @@
+<section class="resume">
+
+  <header>
+    <h2 class="h2 article-title">
+      Resume
+    </h2>
+  </header>
+
+  @for (section of sections; track section.title) {
+
+    <section class="timeline">
+
+      <div class="title-wrapper">
+
+        <div class="icon-box">
+          <ion-icon [name]="section.icon"></ion-icon>
+        </div>
+
+        <h3 class="h3">
+          {{ section.title }}
+        </h3>
+
+      </div>
+
+      <ol class="timeline-list">
+
+        @for (item of section.items; track item.title) {
+
+          <li class="timeline-item">
+
+            <h4 class="h4 timeline-item-title">
+              {{ item.title }}
+            </h4>
+
+            <span>
+              {{ item.period }}
+            </span>
+
+            <p class="timeline-text">
+              {{ item.description }}
+            </p>
+
+          </li>
+
+        }
+
+      </ol>
+
+    </section>
+
+  }
+
+</section>
